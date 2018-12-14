@@ -34,6 +34,7 @@ describe('bank test', () => {
   });
 
   it('test if change owner function works' , async() =>{
+     const owner =  await contract.methods.owner().cal()
     await contract.methods.transferOwnership(accounts[1]).send({from: accounts[0]} );
     assert.Equal(owner,accounts[1]);
   });
