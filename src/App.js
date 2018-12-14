@@ -48,7 +48,7 @@ class App extends Component {
         <header className="App-header">
           <h2>GBP crypto coin supplay is: {this.state.supplay}</h2>
           <p>GBP special withdraw address: {withdrawAddress}</p>
-         <form onSubmit ={this.mintNewToken}>
+         <form>
         <label> Mint new GBP crypto coins</label>
         <div>
         <input
@@ -64,13 +64,10 @@ class App extends Component {
         onChange ={event => this.setState({to: event.target.value})}
         /> 
         </div>
-        <ProgressButton state={this.state.mintButton}> Mint </ProgressButton>
+        <ProgressButton onClick={this.mintNewToken} state={this.state.mintButton}> Mint </ProgressButton>
         </form>
         <p>Destroy GBP crypto coins</p>
         <ProgressButton onClick={this.destroyTokens} state={this.state.destroyButton}> Destroy </ProgressButton  >
-  
-
-
 
         </header>
       </div>
