@@ -3,6 +3,20 @@ import web3 from './web3';
 const instance = new web3.eth.Contract(
 	[
 		{
+			"constant": true,
+			"inputs": [],
+			"name": "name",
+			"outputs": [
+				{
+					"name": "",
+					"type": "string"
+				}
+			],
+			"payable": false,
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
 			"constant": false,
 			"inputs": [
 				{
@@ -26,18 +40,36 @@ const instance = new web3.eth.Contract(
 			"type": "function"
 		},
 		{
-			"constant": false,
-			"inputs": [
+			"constant": true,
+			"inputs": [],
+			"name": "totalSupply",
+			"outputs": [
 				{
-					"name": "spender",
-					"type": "address"
-				},
-				{
-					"name": "subtractedValue",
+					"name": "",
 					"type": "uint256"
 				}
 			],
-			"name": "decreaseAllowance",
+			"payable": false,
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"constant": false,
+			"inputs": [
+				{
+					"name": "from",
+					"type": "address"
+				},
+				{
+					"name": "to",
+					"type": "address"
+				},
+				{
+					"name": "value",
+					"type": "uint256"
+				}
+			],
+			"name": "transferFrom",
 			"outputs": [
 				{
 					"name": "",
@@ -49,21 +81,17 @@ const instance = new web3.eth.Contract(
 			"type": "function"
 		},
 		{
-			"constant": false,
-			"inputs": [
+			"constant": true,
+			"inputs": [],
+			"name": "decimals",
+			"outputs": [
 				{
-					"name": "target",
-					"type": "address"
-				},
-				{
-					"name": "destroyAmount",
-					"type": "uint256"
+					"name": "",
+					"type": "uint8"
 				}
 			],
-			"name": "dectroyToken",
-			"outputs": [],
 			"payable": false,
-			"stateMutability": "nonpayable",
+			"stateMutability": "view",
 			"type": "function"
 		},
 		{
@@ -90,6 +118,58 @@ const instance = new web3.eth.Contract(
 			"type": "function"
 		},
 		{
+			"constant": true,
+			"inputs": [],
+			"name": "_totalSupply",
+			"outputs": [
+				{
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"payable": false,
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"constant": true,
+			"inputs": [
+				{
+					"name": "",
+					"type": "address"
+				}
+			],
+			"name": "_balances",
+			"outputs": [
+				{
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"payable": false,
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"constant": true,
+			"inputs": [
+				{
+					"name": "owner",
+					"type": "address"
+				}
+			],
+			"name": "balanceOf",
+			"outputs": [
+				{
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"payable": false,
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
 			"constant": false,
 			"inputs": [
 				{
@@ -103,6 +183,57 @@ const instance = new web3.eth.Contract(
 			],
 			"name": "mintToken",
 			"outputs": [],
+			"payable": false,
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"constant": true,
+			"inputs": [],
+			"name": "owner",
+			"outputs": [
+				{
+					"name": "",
+					"type": "address"
+				}
+			],
+			"payable": false,
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"constant": true,
+			"inputs": [],
+			"name": "symbol",
+			"outputs": [
+				{
+					"name": "",
+					"type": "string"
+				}
+			],
+			"payable": false,
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"constant": false,
+			"inputs": [
+				{
+					"name": "spender",
+					"type": "address"
+				},
+				{
+					"name": "subtractedValue",
+					"type": "uint256"
+				}
+			],
+			"name": "decreaseAllowance",
+			"outputs": [
+				{
+					"name": "",
+					"type": "bool"
+				}
+			],
 			"payable": false,
 			"stateMutability": "nonpayable",
 			"type": "function"
@@ -134,27 +265,41 @@ const instance = new web3.eth.Contract(
 			"constant": false,
 			"inputs": [
 				{
-					"name": "from",
+					"name": "target",
 					"type": "address"
 				},
 				{
-					"name": "to",
-					"type": "address"
-				},
-				{
-					"name": "value",
+					"name": "destroyAmount",
 					"type": "uint256"
 				}
 			],
-			"name": "transferFrom",
+			"name": "destroyTokens",
+			"outputs": [],
+			"payable": false,
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"constant": true,
+			"inputs": [
+				{
+					"name": "owner",
+					"type": "address"
+				},
+				{
+					"name": "spender",
+					"type": "address"
+				}
+			],
+			"name": "allowance",
 			"outputs": [
 				{
 					"name": "",
-					"type": "bool"
+					"type": "uint256"
 				}
 			],
 			"payable": false,
-			"stateMutability": "nonpayable",
+			"stateMutability": "view",
 			"type": "function"
 		},
 		{
@@ -220,153 +365,8 @@ const instance = new web3.eth.Contract(
 			],
 			"name": "Approval",
 			"type": "event"
-		},
-		{
-			"constant": true,
-			"inputs": [
-				{
-					"name": "",
-					"type": "address"
-				}
-			],
-			"name": "_balances",
-			"outputs": [
-				{
-					"name": "",
-					"type": "uint256"
-				}
-			],
-			"payable": false,
-			"stateMutability": "view",
-			"type": "function"
-		},
-		{
-			"constant": true,
-			"inputs": [],
-			"name": "_totalSupply",
-			"outputs": [
-				{
-					"name": "",
-					"type": "uint256"
-				}
-			],
-			"payable": false,
-			"stateMutability": "view",
-			"type": "function"
-		},
-		{
-			"constant": true,
-			"inputs": [
-				{
-					"name": "owner",
-					"type": "address"
-				},
-				{
-					"name": "spender",
-					"type": "address"
-				}
-			],
-			"name": "allowance",
-			"outputs": [
-				{
-					"name": "",
-					"type": "uint256"
-				}
-			],
-			"payable": false,
-			"stateMutability": "view",
-			"type": "function"
-		},
-		{
-			"constant": true,
-			"inputs": [
-				{
-					"name": "owner",
-					"type": "address"
-				}
-			],
-			"name": "balanceOf",
-			"outputs": [
-				{
-					"name": "",
-					"type": "uint256"
-				}
-			],
-			"payable": false,
-			"stateMutability": "view",
-			"type": "function"
-		},
-		{
-			"constant": true,
-			"inputs": [],
-			"name": "decimals",
-			"outputs": [
-				{
-					"name": "",
-					"type": "uint8"
-				}
-			],
-			"payable": false,
-			"stateMutability": "view",
-			"type": "function"
-		},
-		{
-			"constant": true,
-			"inputs": [],
-			"name": "name",
-			"outputs": [
-				{
-					"name": "",
-					"type": "string"
-				}
-			],
-			"payable": false,
-			"stateMutability": "view",
-			"type": "function"
-		},
-		{
-			"constant": true,
-			"inputs": [],
-			"name": "owner",
-			"outputs": [
-				{
-					"name": "",
-					"type": "address"
-				}
-			],
-			"payable": false,
-			"stateMutability": "view",
-			"type": "function"
-		},
-		{
-			"constant": true,
-			"inputs": [],
-			"name": "symbol",
-			"outputs": [
-				{
-					"name": "",
-					"type": "string"
-				}
-			],
-			"payable": false,
-			"stateMutability": "view",
-			"type": "function"
-		},
-		{
-			"constant": true,
-			"inputs": [],
-			"name": "totalSupply",
-			"outputs": [
-				{
-					"name": "",
-					"type": "uint256"
-				}
-			],
-			"payable": false,
-			"stateMutability": "view",
-			"type": "function"
 		}
 	],
-  '0x560af47c7aa44130fa5b28add3074794852c0d5f'
+  '0xe69e62fce8cd3cd5e69d7050b3c10112da1d8265'
 );
 export default instance;
