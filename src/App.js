@@ -21,7 +21,7 @@ class App extends Component {
     await contract.methods.mintToken(this.state.to,this.state.createAmount).send({
       from: accounts[0]
     });
-
+    this.componentDidMount();
   };
 
   destroyTokens = async event =>{
@@ -45,7 +45,7 @@ class App extends Component {
         <div>
         <input
         value= {this.state.createAmount}
-        placeholder ="How many GBP tokens to mint"
+        placeholder ="Amount to mint"
         onChange ={event => this.setState({createAmount: event.target.value})}
         />
          <input
@@ -62,7 +62,7 @@ class App extends Component {
         <div>
         <input
         value= {this.state.destroyAmount}
-        placeholder ="How many GBP tokens to destroy"
+        placeholder ="Amount to destroy"
         onChange ={event => this.setState({destroyAmount: event.target.value})}
         />
         </div>
