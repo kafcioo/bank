@@ -45,7 +45,7 @@
   text-decoration: none;
   text-align: center;
   height: 54px;
-  width: 35%;
+  width: 150px;
   -webkit-tap-highlight-color: transparent;
   outline: none;
   transition: background-color 0.3s, width 0.3s, border-width 0.3s, border-color 0.3s, border-radius 0.3s;
